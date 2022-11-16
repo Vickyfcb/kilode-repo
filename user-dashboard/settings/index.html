@@ -138,6 +138,7 @@
 						<input class="input_field" type="text" placeholder="Hikaritesss@gmail.com">
 						<button class="btn-primary" type="submit">Save changes</button>
 
+
 						<!-- Change Password Section -->
 						<h5 class="input_sub_header">Change password</h5>
 						<h5 class="input_header">New Password</h5>
@@ -145,17 +146,24 @@
 						<h5 class="input_header">Re-type Password</h5>
 						<input class="input_field" type="password" placeholder="***************">
 						<!-- Trigger/Open The Popup -->
-						<button class="btn-secondary" type="submit" onclick="openpopup()">Change password</button>
+						<button class=" btn-secondary" id="myBtn" type="submit"><strong>Change password</strong></button>
 
 					</div>
 				</div>
-				<!-- Popup Content Section  -->
-				<div class="popup_content">
-					<div class="popup" id="popup">
+				<!-- The Modal -->
+				<div id="myModal" class="modal">
+					<!-- Modal content -->
+					<div class="modal-content">
 						<span class="close"><i class='bx bx-x'></i></span>
 						<h5 class="modal_header">Change password</h5>
 						<p>Are you sure you want to change your password?</p>
-						<button class="" onclick="closepopup()" type="submit">Change password</button>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<button class="btn-secondary modal-btn" type="submit">Change password</button>
+
 					</div>
 				</div>
 			</div>
@@ -273,45 +281,35 @@
 			</div>
 		</div>
 	</main>
-	</div>
-
-
-
-
-
-
 	<br>
 	<br>
-
-
-
-
-
-
-
-
 
 
 	<!-- Custom JS -->
 	<script>
+		// Get the modal
+		var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
 		// Get the <span> element that closes the modal
 		var span = document.getElementsByClassName("close")[0];
 
-		let popup = document.getElementById("popup")
+		// When the user clicks the button, open the modal 
+		btn.onclick = function () {
+			modal.style.display = "block";
+		}
 
-		function openpopup() {
-			popup.classList.add("open_popup")
-		}
-		function closepopup() {
-			popup.classList.remove("open_popup")
-		}
+		// When the user clicks on <span> (x), close the modal
 		span.onclick = function () {
-			popup.classList.remove("open_popup")
+			modal.style.display = "none";
 		}
+
+		// When the user clicks anywhere outside of the modal, close it
 		window.onclick = function (event) {
-			if (event.target == popup) {
-				popup.classList.remove("open_popup")
-				// popup.style.display = "none";
+			if (event.target == modal) {
+				modal.style.display = "none";
 			}
 		}
 	</script>
