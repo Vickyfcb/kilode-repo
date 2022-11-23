@@ -128,7 +128,7 @@ const goingBtn = document.querySelectorAll(".going__btn");
 
 //console.log(goingBtn);
 
-goingBtn.forEach(function(going){
+goingBtn.forEach((going) => {
     going.addEventListener('click',function(){
         //console.log(going.childNodes);
         if (going.childNodes[1].classList.contains('going-img')){
@@ -141,6 +141,28 @@ goingBtn.forEach(function(going){
         }
     });
 });
+
+/*=================== KILORANT MORE ======================*/
+const moreViews = document.querySelectorAll('.more__content'),
+      moreBtns = document.querySelectorAll('.more__icon'),
+      moreCloses = document.querySelectorAll('.close__more')
+let moda = function(moreClick) {
+    moreViews[moreClick].classList.add('active-modal')
+}
+moreBtns.forEach((moreBtn, i) => {
+    moreBtn.addEventListener('click', () =>{
+        moda(i)
+    })
+})
+moreCloses.forEach((modalClose) => {
+    modalClose.addEventListener('click',() => {
+        moreViews.forEach((modalView) =>{
+            modalView.classList.remove('active-modal');
+        })
+    });
+})
+
+
 
 const selectAll = document.querySelector('.setup-group.select-all input');
 const allCheckbox = document.querySelectorAll('.setup-group:not(.select-all) input');
